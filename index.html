@@ -2,112 +2,151 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arcane Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcane Technologies</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #0b0f1a;
-      --card: #12182b;
-      --accent: #7c8cff;
-      --text: #e6e9ff;
-      --muted: #9aa3d1;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", system-ui, sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      background: #0b0f19;
+      color: #ffffff;
+      overflow-x: hidden;
     }
 
+    /* HERO */
     header {
-      padding: 80px 20px;
+      height: 100vh;
+      background: linear-gradient(120deg, rgba(0,0,0,.7), rgba(0,0,0,.7)),
+      url("https://images.unsplash.com/photo-1518770660439-4636190af475") center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      background: radial-gradient(circle at top, #1a2140, var(--bg));
+      animation: fadeIn 2s ease;
     }
 
     header h1 {
-      font-size: 3rem;
-      letter-spacing: 1px;
-    }
-
-    header span {
-      color: var(--accent);
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
     header p {
-      margin-top: 15px;
+      margin: 20px 0;
       font-size: 1.2rem;
-      color: var(--muted);
+      opacity: 0.85;
     }
 
+    .btn {
+      padding: 14px 34px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,114,255,.5);
+    }
+
+    /* SECTIONS */
     section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 60px 20px;
+      padding: 100px 10%;
     }
 
-    .cards {
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: #0072ff;
+      display: block;
+      margin: 15px auto;
+      border-radius: 10px;
+    }
+
+    /* SERVICES */
+    .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 30px;
     }
 
     .card {
-      background: var(--card);
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid rgba(124,140,255,0.15);
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: rgba(255,255,255,0.05);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      transition: transform .4s, box-shadow .4s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(124,140,255,0.15);
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 20px 50px rgba(0,114,255,.4);
     }
 
     .card h3 {
-      margin-bottom: 10px;
-      color: var(--accent);
+      margin-bottom: 15px;
+      color: #00c6ff;
     }
 
+    /* ABOUT */
     .about {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 50px;
+      align-items: center;
     }
 
-    .about div {
-      background: var(--card);
-      padding: 30px;
-      border-radius: 12px;
+    .about img {
+      width: 100%;
+      border-radius: 25px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
     }
 
     footer {
+      background: #070b14;
+      padding: 40px;
       text-align: center;
-      padding: 40px 20px;
-      border-top: 1px solid rgba(124,140,255,0.1);
-      color: var(--muted);
+      opacity: .7;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
+    /* RESPONSIVE */
+    @media(max-width: 900px) {
       .about {
         grid-template-columns: 1fr;
+      }
+      header h1 {
+        font-size: 2.5rem;
       }
     }
   </style>
@@ -115,61 +154,59 @@
 
 <body>
 
-<header>
-  <h1><span>Arcane</span> Tech</h1>
-  <p>Engineering the unseen. Powering the future.</p>
-</header>
-
-<section>
-  <h2>Our Services</h2>
-  <br/>
-  <div class="cards">
-    <div class="card">
-      <h3>Network Engineering</h3>
-      <p>Design, deployment and optimisation of secure enterprise networks.</p>
+  <!-- HERO -->
+  <header>
+    <div>
+      <h1>Arcane Technologies</h1>
+      <p>Innovative IT Solutions • Networking • Cloud • Security</p>
+      <a href="#services" class="btn">Explore Services</a>
     </div>
-    <div class="card">
-      <h3>Cloud & Infrastructure</h3>
-      <p>Scalable cloud solutions, hybrid environments and system automation.</p>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Network Engineering</h3>
+        <p>Enterprise-grade networking, design, implementation & optimisation.</p>
+      </div>
+      <div class="card">
+        <h3>Cloud Solutions</h3>
+        <p>Secure cloud migrations, hybrid environments & automation.</p>
+      </div>
+      <div class="card">
+        <h3>Cyber Security</h3>
+        <p>Threat protection, monitoring, compliance & risk management.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Cybersecurity</h3>
-      <p>Threat detection, hardening, and compliance-focused security solutions.</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2 class="section-title">About Arcane</h2>
+    <div class="about">
+      <p>
+        Arcane Technologies delivers modern, scalable and secure IT solutions
+        for businesses that demand reliability and innovation.
+        <br><br>
+        We combine engineering expertise with cutting-edge technology to future-proof your infrastructure.
+      </p>
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Tech team">
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="about">
-  <div>
-    <h2>About Arcane Tech</h2>
-    <p>
-      Arcane Tech is a modern technology consultancy focused on building
-      reliable, secure and intelligent systems. We blend engineering precision
-      with forward-thinking innovation to deliver real-world results.
-    </p>
-  </div>
-  <div>
-    <h2>Why Choose Us</h2>
-    <ul>
-      <li>✔ Industry-grade engineering</li>
-      <li>✔ Security-first approach</li>
-      <li>✔ Scalable & future-proof designs</li>
-      <li>✔ Transparent & ethical practices</li>
-    </ul>
-  </div>
-</section>
+  <!-- CONTACT -->
+  <section class="contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <p>Email: contact@arcanetech.com.au</p>
+    <br>
+    <a href="mailto:contact@arcanetech.com.au" class="btn">Contact Us</a>
+  </section>
 
-<section>
-  <h2>Contact</h2>
-  <p>
-    📧 Email: <a href="mailto:arcanetech.backup@gmail.com">contac us @arcanetech.com</a><br/>
-    🌐 Website: arcanetech.com.au
-  </p>
-</section>
-
-<footer>
-  © 2026 Arcane Tech. All rights reserved.
-</footer>
+  <footer>
+    © 2026 Arcane Technologies. All rights reserved.
+  </footer>
 
 </body>
 </html>
