@@ -1,9 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Managed IT & Network Solutions | Arcane</title>
+<meta charset="UTF-8">
+<title>Cybersecurity-as-a-Service | Arcane</title>
+
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+.chart-box {
+  width:100%;
+  max-width:700px;
+  margin:30px auto;
+}
+.chart-title {
+  text-align:center;
+  margin-top:12px;
+  font-size:1rem;
+  color:rgba(255,255,255,.8);
+}
+.stats-text {
+  line-height:1.6;
+  padding:20px 0;
+}
+</style>
 </head>
 
 <body>
@@ -16,25 +38,82 @@
 </nav>
 
 <section>
-<h2>Managed IT & Network Solutions</h2>
+<h2>Cybersecurity-as-a-Service</h2>
 
 <p>
-Arcane provides reliable, secure and scalable IT infrastructure for
-small businesses, schools and medical clinics.
-</p><br>
+Cybersecurity today is no longer just an IT checkbox — it’s a **business survival factor**. In 2025, many small and medium businesses continue to face sophisticated attacks while lacking adequate protection strategies. :contentReference[oaicite:1]{index=1}
+</p>
 
-<ul>
-<li>Network design & optimisation</li>
-<li>Firewall deployment & hardening</li>
-<li>Business Wi-Fi optimisation</li>
-<li>Cloud migration & hybrid setups</li>
-<li>Ongoing monitoring & support</li>
-</ul>
+<div class="stats-text">
+  <strong>Key 2025 Facts:</strong>
+  <ul>
+    <li>~46% of small businesses experienced a cyberattack in the last year. :contentReference[oaicite:2]{index=2}</li>
+    <li>Phishing and malware remain the most common vectors. :contentReference[oaicite:3]{index=3}</li>
+    <li>The cybersecurity market continues rapid growth due to rising threats. :contentReference[oaicite:4]{index=4}</li>
+  </ul>
+</div>
 
-<br>
-<a class="btn" href="contact.html">Request a Consultation</a>
+<!-- CHART 1: Attack Frequency -->
+<div class="chart-box">
+  <canvas id="attackRateChart"></canvas>
+  <div class="chart-title">Percentage of Small Businesses Attacked (2025)</div>
+</div>
+
+<!-- CHART 2: Preparedness vs Incidents -->
+<div class="chart-box">
+  <canvas id="preparednessChart"></canvas>
+  <div class="chart-title">SMB Preparedness vs Attacks (2025)</div>
+</div>
+
+<h3>Services Included</h3>
+<div class="grid">
+  <div class="card"><h3>Vulnerability Scanning</h3><p>Regular checks uncover weaknesses before attackers exploit them.</p></div>
+  <div class="card"><h3>Firewall Hardening</h3><p>Enterprise-grade firewalls configured to block threats without slowing business.</p></div>
+  <div class="card"><h3>MFA & Identity Security</h3><p>Multi-factor authentication and identity protection to prevent account breaches.</p></div>
+  <div class="card"><h3>Monitoring & Alerts</h3><p>Active monitoring detects threats early and alerts your team fast.</p></div>
+  <div class="card"><h3>Incident Response</h3><p>Action plans and expert response during and after an attack.</p></div>
+  <div class="card"><h3>Security Awareness Training</h3><p>Employee training to reduce risky behavior and phishing success rates.</p></div>
+</div>
+
+<a class="btn" href="contact.html">Request a Security Assessment</a>
 </section>
 
 <footer>© 2026 Arcane Technologies</footer>
+
+<script>
+const attackRateData = {
+  labels: ["Attacked", "Not Attacked"],
+  datasets: [{
+    label: "Business Attack Rate",
+    data: [46, 54],
+    backgroundColor: ["#00c6ff","#0072ff"]
+  }]
+};
+new Chart(document.getElementById("attackRateChart"), {
+  type: "pie",
+  data: attackRateData,
+  options: { responsive:true, plugins:{legend:{position:"bottom"}} }
+});
+
+const prepData = {
+  labels: ["Prepared SMBs","Unprepared SMBs"],
+  datasets: [{
+    label: "Preparedness vs Attack Exposure",
+    data: [20, 80],
+    backgroundColor: ["#00c6ff","#0072ff"]
+  }]
+};
+new Chart(document.getElementById("preparednessChart"), {
+  type: "bar",
+  data: prepData,
+  options: {
+    indexAxis: "y",
+    responsive:true,
+    scales:{x:{beginAtZero:true}},
+    plugins:{legend:{display:false}}
+  }
+});
+</script>
+
 </body>
 </html>
