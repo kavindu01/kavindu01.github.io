@@ -10,7 +10,7 @@
 /* ---------- HERO YOUTUBE VIDEO ---------- */
 .hero-managed {
   position: relative;
-  height:450px;
+  height:550px; /* slightly taller for cinematic look */
   overflow:hidden;
   display:flex;
   align-items:center;
@@ -34,10 +34,11 @@
   position:absolute;
   top:50%;
   left:50%;
-  width:177.77%; /* 16:9 aspect ratio trick */
+  width:177.78%; /* 16:9 aspect ratio trick */
   height:100%;
   transform:translate(-50%, -50%);
   pointer-events:none; /* allows overlay clicks */
+  border:0;
 }
 
 /* HERO CONTENT */
@@ -150,8 +151,8 @@ footer {
 <!-- HERO YOUTUBE VIDEO -->
 <div class="hero-managed">
   <div class="video-container">
-    <iframe src="https://www.youtube.com/watch?v=6bDLS4_l9cY" 
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    <iframe src="https://www.youtube.com/embed/6bDLS4_l9cY?autoplay=1&mute=1&loop=1&playlist=6bDLS4_l9cY&controls=0&modestbranding=1" 
+            allow="autoplay; encrypted-media" allowfullscreen>
     </iframe>
   </div>
   <div class="hero-content">
@@ -227,5 +228,6 @@ footer {
 
 </body>
 </html>
+
 
 
