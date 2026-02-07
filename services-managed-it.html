@@ -1,40 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Managed IT & Network Solutions | Arcane</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
+
+<style>
+/* ---------- HERO/BANNER ---------- */
+.hero-managed {
+  height:400px;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('https://images.unsplash.com/photo-1581090700227-03b0f48fbb95?fit=crop&w=1400&q=80') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  color:white;
+  padding:0 8%;
+}
+
+.hero-managed h1 {
+  font-size:2.8rem;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+}
+
+.hero-managed p {
+  max-width:800px;
+  color:rgba(255,255,255,0.9);
+  font-size:1.1rem;
+}
+
+/* ---------- FEATURE CARDS ---------- */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.card {
+  background:rgba(255,255,255,0.05);
+  border-radius:16px;
+  padding:28px;
+  transition:.4s;
+}
+
+.card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,114,255,.4);
+}
+
+/* ---------- STATS/DETAILS ---------- */
+.stats-text {
+  max-width:900px;
+  margin:40px auto;
+  line-height:1.6;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+  display:inline-block;
+  padding:14px 36px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn:hover {
+  transform:translateY(-5px);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  padding:35px 8%;
+  text-align:center;
+  color:rgba(255,255,255,.7);
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* ---------- ANIMATION ---------- */
+.fade-in {
+  opacity:0;
+  transform:translateY(15px);
+  animation:fadeInUp 0.6s forwards;
+}
+@keyframes fadeInUp {
+  to { opacity:1; transform:translateY(0); }
+}
+</style>
 </head>
 
 <body>
-<nav>
+  <nav>
   <div class="logo"><span>Arcane</span> Technologies</div>
   <div>
     <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="whirlies.html">Whirlies</a>
+    <a href="collab.html">Collab</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
+<!-- HERO -->
+<div class="hero-managed">
+  <h1>Managed IT & Network Solutions</h1>
+  <p>
+    Reliable, secure, and scalable IT infrastructure for businesses, schools, and healthcare organisations. 
+    From network design to cloud migration, Arcane ensures operational excellence with minimal downtime.
+  </p>
+</div>
+
 <section>
-<h2>Managed IT & Network Solutions</h2>
 
-<p>
-Arcane provides reliable, secure and scalable IT infrastructure for
-small businesses, schools and medical clinics.
-</p><br>
+<!-- DESCRIPTION -->
+<div class="stats-text fade-in">
+  <p>
+    Arcane Technologies provides end-to-end IT management solutions to ensure your operations run smoothly and securely. 
+    We design, deploy, and monitor network and IT systems with enterprise-grade reliability, even for small and medium organizations.
+  </p>
+</div>
 
-<ul>
-<li>Network design & optimisation</li>
-<li>Firewall deployment & hardening</li>
-<li>Business Wi-Fi optimisation</li>
-<li>Cloud migration & hybrid setups</li>
-<li>Ongoing monitoring & support</li>
-</ul>
+<!-- FEATURE CARDS -->
+<div class="grid fade-in">
+  <div class="card">
+    <h3>Network Design & Optimisation</h3>
+    <p>Custom network architectures that maximise performance and reliability while minimising latency and bottlenecks.</p>
+  </div>
 
-<br>
-<a class="btn" href="contact.html">Request a Consultation</a>
+  <div class="card">
+    <h3>Firewall Deployment & Hardening</h3>
+    <p>Protect critical systems with enterprise-grade firewalls, intrusion detection, and continuous threat assessment.</p>
+  </div>
+
+  <div class="card">
+    <h3>Business Wi-Fi Optimisation</h3>
+    <p>High-speed, secure Wi-Fi solutions optimised for offices, campuses, and healthcare facilities.</p>
+  </div>
+
+  <div class="card">
+    <h3>Cloud Migration & Hybrid Setups</h3>
+    <p>Seamless transition to cloud-based systems or hybrid architectures with zero data loss and minimal downtime.</p>
+  </div>
+
+  <div class="card">
+    <h3>Ongoing Monitoring & Support</h3>
+    <p>24/7 system monitoring, proactive alerts, and managed support for uninterrupted operations.</p>
+  </div>
+</div>
+
+<!-- CTA BUTTON -->
+<div style="text-align:center; margin-top:50px;" class="fade-in">
+  <a class="btn" href="contact.html">Request a Consultation</a>
+</div>
+
 </section>
 
-<footer>© 2026 Arcane Technologies</footer>
+<footer>
+  © 2026 Arcane Technologies · Intelligent, Secure, Reliable
+</footer>
+
 </body>
 </html>
