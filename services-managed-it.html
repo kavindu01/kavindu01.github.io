@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,7 @@
 <script defer src="script.js"></script>
 
 <style>
-/* ---------- HERO VIDEO ---------- */
+/* ---------- HERO YOUTUBE VIDEO ---------- */
 .hero-managed {
   position: relative;
   height:450px;
@@ -19,14 +21,14 @@
   color:white;
 }
 
-.hero-managed video {
+.hero-managed iframe {
   position:absolute;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  object-fit:cover;
   z-index:0;
+  pointer-events:none; /* allows overlay content clicks */
 }
 
 .hero-content {
@@ -50,7 +52,7 @@
   color:rgba(255,255,255,0.9);
 }
 
-/* ---------- FEATURE SECTIONS ---------- */
+/* ---------- FEATURE BLOCKS ---------- */
 .feature-block {
   display:flex;
   align-items:center;
@@ -121,6 +123,7 @@ footer {
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -134,17 +137,16 @@ footer {
   </div>
 </nav>
 
-<!-- HERO VIDEO BANNER -->
+<!-- HERO YOUTUBE VIDEO -->
 <div class="hero-managed">
-  <video autoplay muted loop>
-    <source src="https://cdn.pixabay.com/vimeo/421890960/it-network-technology-4k.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+  <iframe src="https://www.youtube.com/embed/AFXPk1kVvA0?autoplay=1&mute=1&loop=1&playlist=AFXPk1kVvA0" 
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+  </iframe>
   <div class="hero-content">
     <h1>Managed IT & Network Solutions</h1>
     <p>
       Secure, reliable, and scalable IT infrastructure for businesses, schools, and healthcare organisations.  
-      Arcane handles everything from network design to cloud migration and ongoing support.
+      Arcane handles everything from network design to cloud migration, ongoing monitoring, and IT support.
     </p>
   </div>
 </div>
@@ -183,6 +185,14 @@ footer {
     </div>
   </div>
 
+  <div class="feature-block" style="animation-delay:1s;">
+    <img src="https://images.unsplash.com/photo-1613145995727-0dc59b452d3e?fit=crop&w=700&q=80" alt="Business Wi-Fi">
+    <div class="feature-text">
+      <h2>Business Wi-Fi Optimisation</h2>
+      <p>High-speed, secure Wi-Fi solutions optimised for offices, campuses, and healthcare facilities.</p>
+    </div>
+  </div>
+
   <div style="text-align:center; margin-top:50px;" class="fade-in">
     <a class="btn" href="contact.html">Request a Consultation</a>
   </div>
@@ -193,7 +203,7 @@ footer {
 </footer>
 
 <script>
-  // Add fade-in animation when blocks enter viewport
+  // Fade-in animation when blocks enter viewport
   const blocks = document.querySelectorAll('.feature-block');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -205,5 +215,4 @@ footer {
 
 </body>
 </html>
-
 
