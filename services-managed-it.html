@@ -7,15 +7,14 @@
 <script defer src="script.js"></script>
 
 <style>
-/* ---------- HERO VIDEO BANNER ---------- */
+/* ---------- HERO VIDEO ---------- */
 .hero-managed {
-  position:relative;
+  position: relative;
   height:450px;
   overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
   text-align:center;
   color:white;
 }
@@ -36,7 +35,7 @@
   padding:0 8%;
 }
 
-.hero-managed h1 {
+.hero-content h1 {
   font-size:3rem;
   background:linear-gradient(135deg,#00c6ff,#0072ff);
   -webkit-background-clip:text;
@@ -44,58 +43,57 @@
   margin-bottom:12px;
 }
 
-.hero-managed p {
+.hero-content p {
   max-width:800px;
+  margin:auto;
   font-size:1.15rem;
   color:rgba(255,255,255,0.9);
-  margin:auto;
 }
 
-/* ---------- FEATURE CARDS ---------- */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-  margin-top:40px;
-}
-
-.card {
-  background:rgba(255,255,255,0.05);
-  border-radius:16px;
-  padding:28px;
-  transition:.4s;
-  position:relative;
-  overflow:hidden;
-}
-
-.card::before {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(0,198,255,0.1),transparent);
+/* ---------- FEATURE SECTIONS ---------- */
+.feature-block {
+  display:flex;
+  align-items:center;
+  gap:40px;
+  padding:60px 8%;
+  flex-wrap:wrap;
+  color:white;
   opacity:0;
-  transition:.4s;
+  transform:translateY(20px);
+  animation:fadeInUp 0.6s forwards;
 }
 
-.card:hover::before { opacity:1; }
-.card:hover {
-  transform:translateY(-8px);
-  box-shadow:0 15px 35px rgba(0,114,255,.4);
+.feature-block:nth-child(even) {
+  flex-direction:row-reverse;
 }
 
-.card h3 {
-  color:#00c6ff;
-  margin-bottom:12px;
+.feature-block img {
+  max-width:480px;
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 12px 35px rgba(0,114,255,0.4);
 }
 
-/* ---------- DESCRIPTION ---------- */
-.stats-text {
-  max-width:900px;
-  margin:40px auto;
+.feature-block .feature-text {
+  flex:1;
+  max-width:600px;
+}
+
+.feature-block .feature-text h2 {
+  font-size:2rem;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:15px;
+}
+
+.feature-block .feature-text p {
+  font-size:1.1rem;
   line-height:1.6;
+  margin-bottom:15px;
 }
 
-/* ---------- CTA BUTTON ---------- */
+/* ---------- BUTTON ---------- */
 .btn {
   display:inline-block;
   padding:14px 36px;
@@ -103,7 +101,6 @@
   background:linear-gradient(135deg,#00c6ff,#0072ff);
   font-weight:600;
   transition:.3s;
-  margin-top:20px;
 }
 
 .btn:hover {
@@ -119,18 +116,13 @@ footer {
 }
 
 /* ---------- ANIMATION ---------- */
-.fade-in {
-  opacity:0;
-  transform:translateY(15px);
-  animation:fadeInUp 0.6s forwards;
-}
 @keyframes fadeInUp {
   to { opacity:1; transform:translateY(0); }
 }
 </style>
 </head>
-
 <body>
+
 <nav>
   <div class="logo"><span>Arcane</span> Technologies</div>
   <div>
@@ -151,65 +143,67 @@ footer {
   <div class="hero-content">
     <h1>Managed IT & Network Solutions</h1>
     <p>
-      Reliable, secure, and scalable IT infrastructure for businesses, schools, and healthcare organisations. 
-      From network design to cloud migration, Arcane ensures operational excellence with minimal downtime.
+      Secure, reliable, and scalable IT infrastructure for businesses, schools, and healthcare organisations.  
+      Arcane handles everything from network design to cloud migration and ongoing support.
     </p>
   </div>
 </div>
 
+<!-- FEATURES ALTERNATING BLOCKS -->
 <section>
-
-<!-- DESCRIPTION -->
-<div class="stats-text fade-in">
-  <p>
-    Arcane Technologies provides end-to-end IT management solutions to ensure your operations run smoothly and securely. 
-    We handle network architecture, server management, cloud integration, and 24/7 monitoring so your team can focus on growth, not downtime.
-  </p>
-  <p>
-    Our certified IT specialists work with you to implement tailored strategies, security protocols, and monitoring solutions. 
-    Whether you're a small business, school, or medical facility, we scale our services to meet your unique needs.
-  </p>
-</div>
-
-<!-- FEATURE CARDS -->
-<div class="grid fade-in">
-  <div class="card">
-    <h3>Network Design & Optimisation</h3>
-    <p>Custom network architectures that maximise performance and reliability while minimising latency and bottlenecks.</p>
+  <div class="feature-block" style="animation-delay:0.2s;">
+    <img src="https://images.unsplash.com/photo-1581090700227-03b0f48fbb95?fit=crop&w=700&q=80" alt="Network Design">
+    <div class="feature-text">
+      <h2>Network Design & Optimisation</h2>
+      <p>Custom network architectures that maximise performance and reliability while minimising latency and bottlenecks.</p>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Firewall Deployment & Hardening</h3>
-    <p>Protect critical systems with enterprise-grade firewalls, intrusion detection, and continuous threat assessment.</p>
+  <div class="feature-block" style="animation-delay:0.4s;">
+    <img src="https://images.unsplash.com/photo-1559028012-d4e0e70d0bfa?fit=crop&w=700&q=80" alt="Firewall Deployment">
+    <div class="feature-text">
+      <h2>Firewall Deployment & Hardening</h2>
+      <p>Protect critical systems with enterprise-grade firewalls, intrusion detection, and continuous threat assessment.</p>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Business Wi-Fi Optimisation</h3>
-    <p>High-speed, secure Wi-Fi solutions optimised for offices, campuses, and healthcare facilities.</p>
+  <div class="feature-block" style="animation-delay:0.6s;">
+    <img src="https://images.unsplash.com/photo-1581090700427-03b0f48fbb95?fit=crop&w=700&q=80" alt="Cloud Migration">
+    <div class="feature-text">
+      <h2>Cloud Migration & Hybrid Setups</h2>
+      <p>Seamless transition to cloud-based systems or hybrid architectures with zero data loss and minimal downtime.</p>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Cloud Migration & Hybrid Setups</h3>
-    <p>Seamless transition to cloud-based systems or hybrid architectures with zero data loss and minimal downtime.</p>
+  <div class="feature-block" style="animation-delay:0.8s;">
+    <img src="https://images.unsplash.com/photo-1581090700447-03b0f48fbb95?fit=crop&w=700&q=80" alt="Monitoring Support">
+    <div class="feature-text">
+      <h2>Ongoing Monitoring & Support</h2>
+      <p>24/7 system monitoring, proactive alerts, and managed support for uninterrupted operations.</p>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Ongoing Monitoring & Support</h3>
-    <p>24/7 system monitoring, proactive alerts, and managed support for uninterrupted operations.</p>
+  <div style="text-align:center; margin-top:50px;" class="fade-in">
+    <a class="btn" href="contact.html">Request a Consultation</a>
   </div>
-</div>
-
-<!-- CTA BUTTON -->
-<div style="text-align:center; margin-top:50px;" class="fade-in">
-  <a class="btn" href="contact.html">Request a Consultation</a>
-</div>
-
 </section>
 
 <footer>
   © 2026 Arcane Technologies · Intelligent, Secure, Reliable
 </footer>
 
+<script>
+  // Add fade-in animation when blocks enter viewport
+  const blocks = document.querySelectorAll('.feature-block');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.style.opacity = 1;
+    });
+  }, { threshold: 0.2 });
+  blocks.forEach(block => observer.observe(block));
+</script>
+
 </body>
 </html>
+
 
