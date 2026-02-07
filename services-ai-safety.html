@@ -11,10 +11,74 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
+/* ---------- AI CONTENT STYLES ---------- */
+.hero-ai {
+  text-align:center;
+  padding:80px 8% 50px;
+}
+
+.hero-ai h1 {
+  font-size:2.6rem;
+  background:linear-gradient(90deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+}
+
+.hero-ai .glow-line {
+  width:120px;
+  height:3px;
+  background:linear-gradient(90deg,#00c6ff,#0072ff);
+  margin:20px auto;
+  box-shadow:0 0 12px #00c6ff;
+  border-radius:2px;
+}
+
+.stats-text {
+  max-width:900px;
+  margin:40px auto;
+  line-height:1.6;
+}
+
+.stats-text ul {
+  margin-top:15px;
+  padding-left:20px;
+}
+
+.stats-text li {
+  margin-bottom:10px;
+}
+
+/* ---------- CARDS ---------- */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.card {
+  background:rgba(255,255,255,0.05);
+  border-radius:16px;
+  padding:25px;
+  position:relative;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,114,255,.4);
+}
+
+/* ---------- CHART ---------- */
 .chart-box {
-  width:100%;
   max-width:700px;
-  margin:30px auto;
+  margin:50px auto;
+  padding:20px;
+  background:rgba(255,255,255,0.03);
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.08);
 }
 .chart-title {
   text-align:center;
@@ -22,33 +86,115 @@
   font-size:1rem;
   color:rgba(255,255,255,.8);
 }
-.stats-text {
-  line-height:1.6;
-  padding:20px 0;
+
+/* ---------- SUBSECTION ANIMATION ---------- */
+.fade-in {
+  opacity:0;
+  transform:translateY(15px);
+  animation:fadeInUp 0.6s forwards;
+  animation-delay:0.2s;
+}
+@keyframes fadeInUp {
+  to { opacity:1; transform:translateY(0); }
 }
 </style>
 </head>
 
 <body>
-<nav>
-  <div class="logo"><span>Arcane</span> Technologies</div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+
+<!-- HERO -->
+<div class="hero-ai">
+  <h1>AI-Powered Safety & Monitoring</h1>
+  <div class="glow-line"></div>
+  <p>
+    Transform your operational safety with intelligent AI analytics.  
+    Detect anomalies, automate alerts, and improve situational awareness across people, systems, and infrastructure.
+  </p>
+</div>
 
 <section>
-<h2>AI-Powered Safety & Monitoring Solutions</h2>
 
-<p>
-Artificial intelligence isn’t just transforming cybersecurity and IT optimisation — it’s revolutionising how organisations monitor safety, detect anomalies, and respond proactively to real-world risks. AI-powered safety analytics and monitoring tools help organisations make sense of complex environments, automate alerts, and enhance situational awareness across people, systems and infrastructure. :contentReference[oaicite:1]{index=1}
-</p>
+<!-- FEATURES CARDS -->
+<div class="grid">
+  <div class="card fade-in">
+    <h3>Real-Time Threat Detection</h3>
+    <p>
+      AI continuously monitors data streams to identify risks before they escalate, reducing downtime and operational losses.
+    </p>
+  </div>
 
-<div class="stats-text">
-  <strong>AI Adoption & Safety Monitoring Trends (2025)</strong>
+  <div class="card fade-in">
+    <h3>Predictive Risk Analytics</h3>
+    <p>
+      Machine learning forecasts incidents using historical patterns, enabling proactive interventions.
+    </p>
+  </div>
+
+  <div class="card fade-in">
+    <h3>Automated Alerts & Response</h3>
+    <p>
+      Smart alerts reduce false positives and trigger automated workflows for faster, accurate decision-making.
+    </p>
+  </div>
+
+  <div class="card fade-in">
+    <h3>Ethical & Responsible AI</h3>
+    <p>
+      Transparent AI with governance controls ensures compliance and bias mitigation.
+    </p>
+  </div>
+</div>
+
+<!-- STATS SECTION -->
+<div class="stats-text fade-in">
+  <strong>AI Safety & Monitoring Trends (2025)</strong>
   <ul>
-    <li>~80% of cities over 1M population deploy AI-based surveillance systems that improve real-time monitoring. :contentReference[oaicite:2]{index=2}</li>
-    <li>AI use in public safety spending is projected to exceed $30 billion globally by 2026. :contentReference[oaicite:3]{index=3}</li>
-    <li>AI can reduce false positives in surveillance detection by up to 90%. :contentReference[oaicite:4]{index=4}</li>
-    <li>65% of organisations use AI for
+    <li>~80% of major cities deploy AI-based monitoring systems to enhance situational awareness.</li>
+    <li>Global AI safety investment expected to exceed $30B by 2026.</li>
+    <li>AI can reduce false-positive alerts by up to 90% compared to traditional monitoring.</li>
+    <li>65% of organizations leverage AI to enhance operational resilience.</li>
+  </ul>
+</div>
+
+<!-- CHART SECTION -->
+<div class="chart-box fade-in">
+  <canvas id="aiChart"></canvas>
+  <div class="chart-title">AI Adoption Growth in Safety Systems</div>
+</div>
+
+</section>
+
+<footer>
+  © 2026 Arcane Technologies · Intelligence with Integrity
+</footer>
+
+<script>
+const ctx = document.getElementById('aiChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['2021','2022','2023','2024','2025'],
+    datasets: [{
+      label: 'AI Safety Adoption (%)',
+      data: [25, 38, 52, 68, 82],
+      tension: 0.4,
+      fill: true,
+      backgroundColor: 'rgba(0,198,255,0.1)',
+      borderColor: '#00c6ff',
+      borderWidth:2,
+      pointRadius:4
+    }]
+  },
+  options: {
+    plugins:{ legend:{ display:false } },
+    scales:{
+      y:{ ticks:{ color:'#aaa' }, grid:{ color:'rgba(255,255,255,0.05)' } },
+      x:{ ticks:{ color:'#aaa' }, grid:{ display:false } }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
