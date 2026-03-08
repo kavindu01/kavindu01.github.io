@@ -3,118 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <title>Services | Arcane Technologies</title>
-  <link rel="stylesheet" href="style.css">
-<script defer src="script.js"></script>
 
 <!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --primary:#00c6ff;
   --secondary:#0072ff;
   --bg:#0b0f19;
   --glass:rgba(255,255,255,.08);
 }
 
-* {
-  box-sizing:border-box;
+*{
   margin:0;
   padding:0;
-  font-family:Poppins, sans-serif;
+  box-sizing:border-box;
+  font-family:Poppins,sans-serif;
 }
 
-body {
-  background:var(--bg);
+body{
+  background:linear-gradient(120deg,#050811,#0b0f19,#050811);
+  background-size:300% 300%;
+  animation:bgmove 15s infinite alternate;
   color:white;
 }
 
-a {
-  color:white;
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 8%;
+  background:rgba(0,0,0,.4);
+  backdrop-filter:blur(12px);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.logo{
+  font-weight:700;
+  font-size:1.4rem;
+}
+.logo span{ color:var(--primary); }
+nav a{
+  margin-left:25px;
   text-decoration:none;
+  color:white;
+  transition:.3s;
 }
+nav a:hover{ color:var(--primary); }
 
-
-/* PAGE */
-section {
-  padding:120px 8% 100px;
-  animation:fade .5s ease;
-}
-
-h2 {
-  font-size:2.4rem;
-  margin-bottom:30px;
+/* HEADER */
+.header-animated{
+  position:relative;
+  overflow:hidden;
+  padding:100px 5%;
   text-align:center;
+  min-height:550px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background: url('images/r3.png') center/cover no-repeat;
 }
 
-h3 {
-  color:var(--primary);
-  margin-bottom:12px;
+.header-animated h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  background: linear-gradient(270deg, #00c6ff, #0072ff, #00c6ff);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 20px rgba(0,114,255,0.3);
+  white-space: nowrap;
+  animation: fadeUp 1.2s ease forwards;
 }
 
-p {
-  opacity:.85;
+.header-animated p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  opacity: 0.9;
+  margin-bottom: 45px;
+  color: #fffdfd;
+  animation: fadeUp 1.2s ease forwards;
 }
 
-/* GRID + CARDS */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  margin-top:40px;
+.header-animated .tags{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+}
+.header-animated .tags span{
+  background:rgba(255, 243, 243, 0.831);
+  color:#1d0000;
+  padding:8px 18px;
+  border-radius:20px;
+  font-weight:600;
+  transition:.3s;
+  animation:fadeUp 1.5s ease forwards;
+}
+.header-animated .tags span:hover{
+  background:rgba(67, 76, 78, 0.3);
+  color:rgb(120, 8, 8);
+  transform:scale(1.1);
 }
 
-.card {
-  background:var(--glass);
-  padding:40px;
-  border-radius:22px;
-  backdrop-filter:blur(18px);
+/* Floating shapes */
+.floating-shape{
+  position:absolute;
+  border-radius:50%;
+  opacity:0.25;
+  z-index:0;
+  animation:float 6s ease-in-out infinite alternate;
+}
+.shape1{ width:150px; height:150px; background:linear-gradient(135deg,#00c6ff,#0072ff); top:10%; left:10%; animation-delay:0s;}
+.shape2{ width:150px; height:150px; background:linear-gradient(135deg,#000000,#00c6ff); top:30%; right:15%; animation-delay:2s;}
+.shape3{ width:200px; height:200px; background:linear-gradient(135deg,#000000,#0072ff); top:50%; left:10%; animation-delay:4s;}
+.shape4{ width:430px; height:430px; background:linear-gradient(135deg,#000000,#00c6ff); top:70%; left:70%; animation-delay:1s;}
+.shape5{ width:150px; height:150px; background:linear-gradient(135deg,#000000,#00c6ff); top:3%; right:50%; animation-delay:1s;}
+
+/* Animations */
+@keyframes gradientText{0%{background-position:0%;}50%{background-position:100%;}100%{background-position:0%;}}
+@keyframes fadeUp{0%{opacity:0; transform:translateY(20px);}100%{opacity:1; transform:translateY(0);}}
+@keyframes float{0%,100%{transform:translateY(0px);}50%{transform:translateY(-30px);}}
+@keyframes fade{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
+@keyframes bgmove{0%{background-position:0% 50%;}100%{background-position:100% 50%;}}
+
+/* SERVICE SECTIONS */
+.service{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:60px;
+  padding:100px 8%;
+  border-top:1px solid rgba(255,255,255,.05);
+  animation:fade .8s ease;
+}
+.service:nth-child(even){ flex-direction:row-reverse; }
+
+.service img{
+  width:45%;
+  border-radius:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
   transition:.4s;
+  
 }
+.service img:hover{ transform:scale(1.05); }
 
-.card:hover {
-  transform:translateY(-10px);
-  box-shadow:0 20px 50px rgba(0,114,255,.4);
+/* SERVICE TEXT AS CARD */
+.service-text{
+  width:75%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+.service-text:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 198, 255, 0.5);
+}
+.service-text h2{ color:var(--primary); margin-bottom:20px; }
+.service-text p{ opacity:.85; line-height:1.7; margin-bottom:12px; }
+.service-text ul{ margin-left:20px; margin-bottom:12px; }
+.service-text ul li{ margin-bottom:8px; opacity:.85; }
+.service-text .details{ margin-top:15px; }
+.service-text .details p{ margin-bottom:6px; opacity:.9; }
 
-/* BUTTON */
-.btn {
+/* CARD STYLE BUTTONS */
+.btn{
   margin-top:20px;
-  padding:14px 36px;
+  padding:12px 32px;
   border-radius:40px;
   background:linear-gradient(135deg,var(--primary),var(--secondary));
   font-weight:600;
   display:inline-block;
   transition:.3s;
 }
-.btn:hover {
+.btn:hover{
   transform:translateY(-5px);
+  box-shadow:0 12px 35px rgba(0,198,255,.6);
 }
 
 /* FOOTER */
-footer {
+footer{
   background:#070b14;
   padding:35px;
   text-align:center;
   opacity:.7;
-}
-
-/* ANIMATION */
-@keyframes fade {
-  from { opacity:0; transform:translateY(15px); }
-  to { opacity:1; transform:translateY(0); }
+  margin-top:60px;
 }
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  section { padding:100px 6%; }
-  h2 { font-size:2rem; }
+  .header-animated h1{font-size:2.5rem;}
+  .header-animated p{font-size:1rem;}
+  .floating-shape{display:none;}
+  .service{ flex-direction:column !important; text-align:center; }
+  .service img{ width:100%; margin-bottom:20px; }
+  .service-text{ width:100%; }
+  nav{ flex-direction:column; gap:10px; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <div class="logo"><span>Arcane</span> Technologies</div>
   <div>
@@ -125,104 +225,213 @@ footer {
     <a href="contact.html">Contact</a>
   </div>
 </nav>
-<section>
 
-  <h2>Our Services</h2>
-
-  <p style="max-width:900px;margin:0 auto 60px;text-align:center;">
-    Arcane Technologies delivers enterprise-grade technology solutions
-    focused on security, compliance, and long-term scalability.
-    Our services support organizations operating in complex,
-    regulated, and mission-critical environments.
-  </p>
-
-  <!-- SERVICES -->
-  <div class="grid">
-
-    <div class="card">
-      <h3>AI Safety & Governance</h3>
-      <p>
-        Responsible AI implementation through governance frameworks,
-        ethical compliance, risk assessment, and regulatory alignment
-        for AI-driven systems.
-      </p>
-      <p><strong>Ideal for:</strong> Enterprises, fintech, healthcare</p>
-      <p><strong>Focus:</strong> Model governance, bias mitigation</p>
-      <a class="btn" href="services-ai-safety.html">Explore AI Safety</a>
+<!-- HEADER -->
+<section class="header-animated">
+  <div class="header-content">
+    <h1>Our <span>Services</span></h1>
+    <p>
+      Arcane Technologies delivers <strong>enterprise-grade solutions</strong> 
+      focused on <strong>security, compliance, and scalability</strong>.  
+      We empower businesses operating in complex, regulated, and mission-critical environments 
+      with innovation, efficiency, and secure technology infrastructure.
+    </p>
+    <div class="tags">
+      <span>Innovation</span>
+      <span>Security</span>
+      <span>Efficiency</span>
+      <span>Scalability</span>
+      <span>Compliance</span>
+      <span>Reliability</span>
     </div>
-
-    <div class="card">
-      <h3>Cybersecurity & IT Security</h3>
-      <p>
-        End-to-end cybersecurity solutions including threat detection,
-        incident response, penetration testing, and compliance services.
-      </p>
-      <p><strong>Ideal for:</strong> Enterprises, SaaS, government</p>
-      <p><strong>Focus:</strong> Threat monitoring, response readiness</p>
-      <a class="btn" href="services-cybersecurity-it.html">Explore Cybersecurity</a>
-    </div>
-
-    <div class="card">
-      <h3>Managed IT Services</h3>
-      <p>
-        Proactive IT management ensuring system reliability,
-        performance optimization, and continuous monitoring
-        across cloud and on-premise environments.
-      </p>
-      <p><strong>Ideal for:</strong> SMEs, enterprises</p>
-      <p><strong>Focus:</strong> 24/7 monitoring, cloud ops</p>
-      <a class="btn" href="services-managed-it.html">Explore Managed IT</a>
-    </div>
-
-    <div class="card">
-      <h3>Smart Infrastructure</h3>
-      <p>
-        Intelligent infrastructure solutions leveraging IoT,
-        automation, and scalable architectures to build
-        future-ready digital ecosystems.
-      </p>
-      <p><strong>Ideal for:</strong> Smart cities, industrial environments</p>
-      <p><strong>Focus:</strong> IoT, automation, scalability</p>
-      <a class="btn" href="services-smart-infra.html">Explore Smart Infra</a>
-    </div>
-
   </div>
 
-  <!-- WHY ARCANE -->
-  <br><br><br>
-
-  <h2>Why Arcane Technologies</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Security-First Design</h3>
-      <p>
-        Every solution is architected with security,
-        resilience, and privacy as core principles.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Enterprise-Ready</h3>
-      <p>
-        Built to align with enterprise governance,
-        compliance frameworks, and operational standards.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Future-Proof Solutions</h3>
-      <p>
-        Designed for scalability and adaptability
-        as technology and business needs evolve.
-      </p>
-    </div>
-
-  </div>
-
+  <!-- Animated floating shapes -->
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+  <div class="floating-shape shape3"></div>
+  <div class="floating-shape shape4"></div>
+  <div class="floating-shape shape5"></div>
 </section>
 
+<!-- SERVICES -->
+<section class="service">
+  <div class="service-text">
+    <h2>AI Safety & Governance</h2>
+    <p>
+      Ensure responsible AI deployment with governance frameworks, ethical compliance checks, and robust risk assessment.  
+      Align your AI systems with global regulations and mitigate bias efficiently.
+    </p>
+    <ul>
+      <li>Comprehensive AI policy development</li>
+      <li>Bias detection & mitigation strategies</li>
+      <li>Audit-ready AI systems for compliance</li>
+      <li>Ethical AI decision-making frameworks</li>
+    </ul>
+    <div class="details">
+      <p><strong>Ideal for:</strong> Enterprises, fintech, healthcare</p>
+      <p><strong>Focus:</strong> Model governance, bias mitigation, ethical AI</p>
+    </div>
+    <a class="btn" href="services-ai-safety.html">Explore AI Safety</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="AI Safety">
+</section>
+
+<section class="service">
+  <div class="service-text">
+    <h2>Cybersecurity & IT Security</h2>
+    <p>
+      Protect your organization from cyber threats with comprehensive security solutions.  
+      We provide continuous monitoring, incident response, and compliance services for complete digital safety.
+    </p>
+    <ul>
+      <li>24/7 monitoring & threat detection</li>
+      <li>Penetration testing & vulnerability assessment</li>
+      <li>Incident response and mitigation</li>
+      <li>Compliance & regulatory alignment</li>
+    </ul>
+    <div class="details">
+      <p><strong>Ideal for:</strong> Enterprises, SaaS providers, government</p>
+      <p><strong>Focus:</strong> Threat prevention, rapid response, IT resilience</p>
+    </div>
+    <a class="btn" href="services-cybersecurity-it.html">Explore Cybersecurity</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" alt="Cybersecurity">
+</section>
+
+<section class="service">
+  <div class="service-text">
+    <h2>Managed IT Services</h2>
+    <p>
+      Keep your IT environment running smoothly with proactive management, system optimization, and cloud/on-premise monitoring.  
+      We ensure performance, reliability, and operational efficiency at every level.
+    </p>
+    <ul>
+      <li>24/7 system monitoring & support</li>
+      <li>Cloud infrastructure management</li>
+      <li>Performance optimization & cost efficiency</li>
+      <li>IT consulting & process automation</li>
+    </ul>
+    <div class="details">
+      <p><strong>Ideal for:</strong> SMEs, large enterprises</p>
+      <p><strong>Focus:</strong> Reliability, uptime, efficiency</p>
+    </div>
+    <a class="btn" href="services-managed-it.html">Explore Managed IT</a>
+  </div>
+  <img src="images/7.webp" alt="Managed IT">
+</section>
+
+<section class="service">
+  <div class="service-text">
+    <h2>Smart Infrastructure</h2>
+    <p>
+      Build intelligent, future-ready infrastructure with IoT, automation, and scalable solutions.  
+      Create digital ecosystems that adapt to the evolving needs of modern enterprises.
+    </p>
+    <ul>
+      <li>IoT-enabled smart solutions</li>
+      <li>Automated industrial & office systems</li>
+      <li>Scalable and adaptable architectures</li>
+      <li>Future-ready digital ecosystem planning</li>
+    </ul>
+    <div class="details">
+      <p><strong>Ideal for:</strong> Smart cities, industrial & commercial environments</p>
+      <p><strong>Focus:</strong> IoT, automation, digital transformation</p>
+    </div>
+    <a class="btn" href="services-smart-infra.html">Explore Smart Infra</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Smart Infra">
+</section>
+
+<section class="service">
+  <div class="service-text">
+    <h2>Cloud & Backup Solutions</h2>
+    <p>
+      Secure, scalable, and reliable cloud infrastructure and backup solutions.  
+      Protect your critical data and ensure business continuity with automated cloud management.
+    </p>
+    <ul>
+      <li>Cloud infrastructure setup & migration</li>
+      <li>Automated backup & recovery</li>
+      <li>Data security & encryption</li>
+      <li>Scalable storage solutions</li>
+    </ul>
+    <div class="details">
+      <p><strong>Ideal for:</strong> SMEs, Enterprises</p>
+      <p><strong>Focus:</strong> Data security, cloud efficiency, uptime</p>
+    </div>
+    <a class="btn" href="services-cloud-backup.html">Explore Cloud & Backup</a>
+  </div>
+  <img src="images/r2.jpg" alt="Cloud & Backup">
+</section>
+
+<section class="service">
+  <div class="service-text">
+    <h2>Compliance & Consulting</h2>
+    <p>
+      Ensure regulatory compliance and strategic guidance for your business operations.  
+      Our experts help align your processes with industry standards and reduce risk.
+    </p>
+    <ul>
+      <li>Regulatory compliance audits</li>
+      <li>Policy & procedure development</li>
+      <li>Risk assessment & mitigation</li>
+      <li>Expert consulting & advisory</li>
+    </ul>
+    <div class="details">
+      <p><strong>Ideal for:</strong> Enterprises, fintech, healthcare</p>
+      <p><strong>Focus:</strong> Risk management, compliance frameworks</p>
+    </div>
+    <a class="btn" href="services-compliance.html">Explore Compliance</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Compliance & Consulting">
+</section>
+
+<section class="service">
+  <div class="service-text">
+    <h2>Web Development</h2>
+    <p>
+      Full-stack web development solutions to create modern, responsive, and high-performance websites.  
+      We build user-friendly digital experiences tailored to your business needs.
+    </p>
+    <ul>
+      <li>Responsive web design</li>
+      <li>Frontend & backend development</li>
+      <li>E-commerce solutions</li>
+      <li>CMS & custom web apps</li>
+    </ul>
+    <div class="details">
+      <p><strong>Ideal for:</strong> Startups, SMEs, large enterprises</p>
+      <p><strong>Focus:</strong> UX/UI design, performance, scalability</p>
+    </div>
+    <a class="btn" href="services-web-development.html">Explore Web Development</a>
+  </div>
+  <img src="images/r4.jpg" alt="Web Development">
+</section>
+
+<section class="service">
+  <div class="service-text">
+    <h2>Mobile App Development</h2>
+    <p>
+      Custom mobile applications for Android and iOS platforms.  
+      We create engaging, high-performance apps that drive user engagement and business growth.
+    </p>
+    <ul>
+      <li>iOS & Android app development</li>
+      <li>Cross-platform solutions</li>
+      <li>App design & UX optimization</li>
+      <li>App maintenance & updates</li>
+    </ul>
+    <div class="details">
+      <p><strong>Ideal for:</strong> Startups, enterprises, tech companies</p>
+      <p><strong>Focus:</strong> Performance, UX, scalability</p>
+    </div>
+    <a class="btn" href="services-mobile-app.html">Explore Mobile Apps</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" alt="Mobile App Development">
+</section>
+
+<!-- FOOTER -->
 <footer>
   © 2026 Arcane Technologies. All rights reserved.
 </footer>
