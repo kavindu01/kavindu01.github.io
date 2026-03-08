@@ -182,15 +182,6 @@ nav a:hover { color:var(--primary); }
     grid-template-columns: 1fr;
   }
 }
-.card {
-  background: var(--glass);
-  padding: 25px;
-  border-radius: 22px;
-  backdrop-filter: blur(18px);
-  transition: .4s;
-  color: white;
-  display: block;
-}
 
 .card:hover {
   transform: translateY(-10px);
