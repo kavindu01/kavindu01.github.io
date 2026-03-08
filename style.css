@@ -160,20 +160,26 @@ nav a:hover { color:var(--primary); }
 
 
 /*our service*/
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+/* SERVICES GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 0px;
+ 
 }
-@media (max-width:1200px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width:700px) {
-  .grid {
-    grid-template-columns: 1fr; /* 1 card per row on mobile */
+/* Mobile */
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
   }
 }
 .card {
@@ -213,6 +219,7 @@ h3 { color:var(--primary); margin-bottom:12px; }
   background: linear-gradient(180deg, #0b0f19, #0d1b35); /* subtle dark gradient */
   border-radius: 20px;
   overflow: hidden;
+  margin-top: 0px;
 }
 
 .split-text,
@@ -292,6 +299,7 @@ h3 { color:var(--primary); margin-bottom:12px; }
   background: linear-gradient(135deg, #071022, #0d1b35);
   padding: 100px 8%;
   text-align: center;
+ 
 }
 
 .highlight h2 {
