@@ -1,455 +1,279 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Arcane Tech</title>
-    <meta name="description" content="Explore Arcane Tech's portfolio of digital solutions — AI platforms, cloud infrastructure, web applications, and cybersecurity projects.">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #007bff;
-            --bg-dark: #0b0c10;
-            --card-bg: #1a1a1a;
-            --text-muted: #a0a0a0;
-            --border-subtle: rgba(255,255,255,0.05);
-            --transition: 0.3s ease;
-        }
+<meta charset="UTF-8">
+<title>Portfolio Arcane</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-dark);
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
+<style>
+:root {
+  --primary:#00c6ff;
+  --secondary:#0072ff;
+  --bg:#0b0f19;
+  --glass:rgba(255,255,255,.08);
+  --overlay: rgba(0, 0, 0, 0.4);
+}
 
-        /* Navbar */
-        .navbar {
-            background-color: rgba(11, 12, 16, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding: 1.1rem 0;
-            z-index: 1000;
-        }
-        .navbar-brand {
-            font-weight: 700;
-            color: #fff !important;
-            font-size: 1.25rem;
-            letter-spacing: -0.5px;
-        }
-        .nav-link {
-            color: rgba(255,255,255,0.75) !important;
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-left: 1.5rem;
-            transition: color var(--transition);
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #fff !important;
-        }
-        .navbar-toggler {
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 0.4rem 0.6rem;
-        }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: white;
+  margin:0;
+}
 
-        /* Hero */
-        .page-hero {
-            padding: 100px 0 60px;
-            text-align: center;
-        }
-        .page-hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
-        }
-        .page-hero .lead {
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
+nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  background:#070b14;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
 
-        /* Filter Buttons */
-        .filter-controls {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 48px;
-        }
-        .filter-btn {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.15);
-            color: rgba(255,255,255,0.7);
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all var(--transition);
-        }
-        .filter-btn:hover {
-            border-color: rgba(255,255,255,0.4);
-            color: #fff;
-        }
-        .filter-btn.active {
-            background: var(--primary-blue);
-            border-color: var(--primary-blue);
-            color: #fff;
-        }
+nav .logo span {
+  color:var(--primary);
+  font-weight:700;
+  font-size:1.5rem;
+}
 
-        /* Featured Card */
-        .featured-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            margin-bottom: 60px;
-            transition: border-color var(--transition);
-        }
-        .featured-card:hover {
-            border-color: rgba(0,123,255,0.3);
-        }
-        .featured-card .img-wrap {
-            overflow: hidden;
-            height: 100%;
-            min-height: 320px;
-        }
-        .featured-card .img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .featured-card:hover .img-wrap img {
-            transform: scale(1.05);
-        }
-        .featured-card .content {
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .category-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--primary-blue);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            display: inline-block;
-        }
-        .featured-card h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 1rem;
-        }
-        .featured-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        .btn-case-study {
-            display: inline-block;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: #fff;
-            padding: 10px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all var(--transition);
-            width: fit-content;
-        }
-        .btn-case-study:hover {
-            background: var(--primary-blue);
-            border-color: var(--primary-blue);
-            color: #fff;
-        }
+nav a {
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:500;
+  transition:.3s;
+}
 
-        /* Project Cards */
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all var(--transition);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-            border-color: rgba(0,123,255,0.3);
-        }
-        .project-card .img-container {
-            overflow: hidden;
-            aspect-ratio: 16/10;
-        }
-        .project-card .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .project-card:hover .img-container img {
-            transform: scale(1.08);
-        }
-        .project-card .card-body {
-            padding: 1.5rem;
-            flex: 1;
-        }
-        .project-card .card-title {
-            font-weight: 600;
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-        }
-        .project-card .card-text {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            line-height: 1.6;
-        }
+nav a.active,
+nav a:hover {
+  color:var(--primary);
+}
 
-        /* Portfolio item animation */
-        .portfolio-item {
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-        .portfolio-item.hiding {
-            opacity: 0;
-            transform: scale(0.95);
-        }
+section {
+  padding:100px 4%;
+}
 
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding: 60px 0 30px;
-            margin-top: 100px;
-        }
-        footer h5 {
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        footer p {
-            color: var(--text-muted);
-        }
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color var(--transition);
-        }
-        footer a:hover { color: #fff; }
+h2 {
+  font-size:2.5rem;
+  text-align:center;
+  margin-bottom:20px;
+  color:white;
+}
 
-        @media (max-width: 991px) {
-            .page-hero h1 { font-size: 2.5rem; }
-            .featured-card .content { padding: 2rem; }
-            .featured-card .img-wrap { min-height: 240px; }
-        }
-        @media (max-width: 575px) {
-            .page-hero h1 { font-size: 2rem; }
-            .page-hero { padding: 80px 0 40px; }
-        }
-    </style>
+.portfolio-intro {
+  max-width:900px;
+  margin:0 auto 60px;
+  text-align:center;
+  opacity:.85;
+  font-size:1.1rem;
+}
+
+/* WIDE HORIZONTAL CARDS */
+.portfolio-card {
+  display:flex;
+  background: var(--glass);
+  border-radius:20px;
+  margin-bottom:50px;
+  overflow:hidden;
+  position:relative;
+  transition:.5s;
+  box-shadow: 0 10px 30px rgba(0,114,255,.3);
+}
+
+.portfolio-card::before {
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  opacity:0;
+  transition:.5s;
+  border-radius:20px;
+}
+
+.portfolio-card:hover::before {
+  opacity:0.15;
+}
+
+.portfolio-card:hover {
+  transform:translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0,114,255,.5);
+}
+
+.portfolio-card img {
+  width:50%;
+  object-fit:cover;
+  transition: transform .5s, filter .5s;
+}
+
+.portfolio-card:hover img {
+  transform:scale(1.05);
+  filter: brightness(0.85);
+}
+
+.card-content {
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:50%;
+}
+
+.card-content h3 {
+  font-size:2rem;
+  color: var(--primary);
+  margin-bottom:15px;
+}
+
+.card-content p {
+  font-size:1.1rem;
+  opacity:.85;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+/* TAGS FOR TECH STACK */
+.tech-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color:#fff;
+  font-size:0.9rem;
+  padding:5px 12px;
+  border-radius:12px;
+  display:inline-block;
+  transition:.3s;
+}
+
+.tech-tag:hover {
+  transform:scale(1.05);
+}
+
+/* ALTERNATE CARD IMAGE LEFT/RIGHT */
+.portfolio-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .portfolio-card {
+    flex-direction:column;
+  }
+  .portfolio-card img,
+  .card-content {
+    width:100%;
+  }
+  .card-content {
+    padding:20px;
+  }
+  h2 { font-size:2rem; }
+}
+</style>
+
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">ARCANE TECH</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/collaboration.html">Collaboration</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<!-- NAVBAR -->
+<nav>
+  <div class="logo"><span>Arcane</span> Technologies</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="collab.html">Collab</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
-    <!-- Hero -->
-    <header class="page-hero">
-        <div class="container">
-            <h1>Portfolio</h1>
-            <p class="lead">Explore our latest digital architectures — from AI-driven platforms to highly secure cloud infrastructures.</p>
-        </div>
-    </header>
+<!-- PORTFOLIO SECTION -->
+<section>
+  <h2>Our Portfolio</h2>
+  <p class="portfolio-intro">
+    Explore our key projects. Each project is crafted with precision and innovation.
+  </p>
 
-    <main class="container">
-        <!-- Featured Project -->
-        <div class="featured-card">
-            <div class="row g-0 align-items-stretch">
-                <div class="col-lg-7">
-                    <div class="img-wrap">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" alt="Global Quantum Infrastructure">
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="content">
-                        <span class="category-tag">Featured Project</span>
-                        <h2>Global Quantum Infrastructure</h2>
-                        <p>A full-scale cloud migration and security overhaul for a multi-national financial institution, implementing zero-trust architecture across 12 global regions.</p>
-                        <a href="#" class="btn-case-study">View Case Study</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- Portfolio Cards -->
+  <div class="portfolio-card">
+    <img src="images/project1.jpg" alt="Corporate Website">
+    <div class="card-content">
+      <h3>Corporate Website</h3>
+      <p>We build responsive, modern websites tailored for startups and enterprises. Designed to optimize user experience and performance.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">React</span>
+      </div>
+    </div>
+  </div>
 
-        <!-- Filter Controls -->
-        <div class="filter-controls">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="web">Web</button>
-            <button class="filter-btn" data-filter="ai">AI</button>
-            <button class="filter-btn" data-filter="cloud">Cloud</button>
-            <button class="filter-btn" data-filter="security">Security</button>
-        </div>
+  <div class="portfolio-card">
+    <img src="images/project2.jpg" alt="AI Chatbot">
+    <div class="card-content">
+      <h3>AI Chatbot</h3>
+      <p>Intelligent AI chatbots for seamless automation, providing customer support and operational efficiency for businesses of all sizes.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">AI/ML</span>
+        <span class="tech-tag">Node.js</span>
+      </div>
+    </div>
+  </div>
 
-        <!-- Portfolio Grid -->
-        <div class="row g-4" id="portfolio-grid">
-            <div class="col-lg-4 col-md-6 portfolio-item" data-category="web">
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="Nexus E-Commerce">
-                    </div>
-                    <div class="card-body">
-                        <span class="category-tag">Web</span>
-                        <h5 class="card-title">Nexus E-Commerce</h5>
-                        <p class="card-text">High-performance headless commerce solution built for speed and scalability.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item" data-category="ai">
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600" alt="Sentience Analytics">
-                    </div>
-                    <div class="card-body">
-                        <span class="category-tag">AI</span>
-                        <h5 class="card-title">Sentience Analytics</h5>
-                        <p class="card-text">Predictive data modeling platform using advanced neural networks for real-time insights.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item" data-category="cloud">
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600" alt="SkyVault Storage">
-                    </div>
-                    <div class="card-body">
-                        <span class="category-tag">Cloud</span>
-                        <h5 class="card-title">SkyVault Storage</h5>
-                        <p class="card-text">Distributed cloud storage system with 99.99% uptime and global edge nodes.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item" data-category="security">
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="IronGate Firewall">
-                    </div>
-                    <div class="card-body">
-                        <span class="category-tag">Security</span>
-                        <h5 class="card-title">IronGate Firewall</h5>
-                        <p class="card-text">Next-gen enterprise security layer protecting against zero-day exploits.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item" data-category="web">
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=600" alt="Velocity Dashboard">
-                    </div>
-                    <div class="card-body">
-                        <span class="category-tag">Web</span>
-                        <h5 class="card-title">Velocity Dashboard</h5>
-                        <p class="card-text">Real-time analytics dashboard with sub-second data rendering and custom visualizations.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item" data-category="ai">
-                <div class="project-card">
-                    <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=600" alt="DeepScan Vision">
-                    </div>
-                    <div class="card-body">
-                        <span class="category-tag">AI</span>
-                        <h5 class="card-title">DeepScan Vision</h5>
-                        <p class="card-text">Computer vision system for automated quality control in manufacturing pipelines.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+  <div class="portfolio-card">
+    <img src="images/project3.jpg" alt="Cloud Dashboard">
+    <div class="card-content">
+      <h3>Cloud Dashboard</h3>
+      <p>Real-time cloud analytics dashboards enabling organizations to track, monitor, and make data-driven decisions efficiently.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">AWS</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">D3.js</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="mb-3">ARCANE TECH</h5>
-                    <p class="small">Leading the edge of digital transformation through precision engineering.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h6 class="mb-3" style="color: rgba(255,255,255,0.5); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Pages</h6>
-                    <ul class="list-unstyled" style="font-size: 0.9rem;">
-                        <li class="mb-2"><a href="/">Home</a></li>
-                        <li class="mb-2"><a href="/portfolio.html">Portfolio</a></li>
-                        <li class="mb-2"><a href="/collaboration.html">Collaboration</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 text-md-end">
-                    <p class="small">&copy; 2025 Arcane Tech. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+  <div class="portfolio-card">
+    <img src="images/project4.jpg" alt="Cybersecurity Upgrade">
+    <div class="card-content">
+      <h3>Cybersecurity Upgrade</h3>
+      <p>Enterprise-level cybersecurity implementation and monitoring to protect critical assets and ensure business continuity.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Firewall</span>
+        <span class="tech-tag">Network Security</span>
+        <span class="tech-tag">PenTest</span>
+      </div>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.filter-btn');
-            const items = document.querySelectorAll('.portfolio-item');
+  <div class="portfolio-card">
+    <img src="images/project5.jpg" alt="Mobile App">
+    <div class="card-content">
+      <h3>Mobile App Development</h3>
+      <p>Custom Android and iOS mobile applications with focus on UX, performance, and scalability for modern business needs.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Flutter</span>
+        <span class="tech-tag">Dart</span>
+        <span class="tech-tag">Firebase</span>
+      </div>
+    </div>
+  </div>
 
-            buttons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    buttons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
+</section>
 
-                    const filter = btn.getAttribute('data-filter');
+<!-- FOOTER -->
+<footer>
+  © 2026 Arcane Technologies. All rights reserved.
+</footer>
 
-                    items.forEach(item => {
-                        const category = item.getAttribute('data-category');
-
-                        if (filter === 'all' || category === filter) {
-                            item.classList.remove('hiding');
-                            item.style.display = '';
-                        } else {
-                            item.classList.add('hiding');
-                            setTimeout(() => {
-                                item.style.display = 'none';
-                            }, 400);
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 </html>
