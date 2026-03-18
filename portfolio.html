@@ -1,1 +1,455 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Arcane Tech</title>
+    <meta name="description" content="Explore Arcane Tech's portfolio of digital solutions — AI platforms, cloud infrastructure, web applications, and cybersecurity projects.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --bg-dark: #0b0c10;
+            --card-bg: #1a1a1a;
+            --text-muted: #a0a0a0;
+            --border-subtle: rgba(255,255,255,0.05);
+            --transition: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(11, 12, 16, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 1.1rem 0;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #fff !important;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.75) !important;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+            transition: color var(--transition);
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #fff !important;
+        }
+        .navbar-toggler {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.4rem 0.6rem;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+        }
+        .page-hero .lead {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Filter Buttons */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 48px;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.7);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .filter-btn:hover {
+            border-color: rgba(255,255,255,0.4);
+            color: #fff;
+        }
+        .filter-btn.active {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: #fff;
+        }
+
+        /* Featured Card */
+        .featured-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 60px;
+            transition: border-color var(--transition);
+        }
+        .featured-card:hover {
+            border-color: rgba(0,123,255,0.3);
+        }
+        .featured-card .img-wrap {
+            overflow: hidden;
+            height: 100%;
+            min-height: 320px;
+        }
+        .featured-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .featured-card:hover .img-wrap img {
+            transform: scale(1.05);
+        }
+        .featured-card .content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .category-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+        }
+        .featured-card h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+        }
+        .featured-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .btn-case-study {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all var(--transition);
+            width: fit-content;
+        }
+        .btn-case-study:hover {
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: #fff;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            border-color: rgba(0,123,255,0.3);
+        }
+        .project-card .img-container {
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+        .project-card .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover .img-container img {
+            transform: scale(1.08);
+        }
+        .project-card .card-body {
+            padding: 1.5rem;
+            flex: 1;
+        }
+        .project-card .card-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-card .card-text {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Portfolio item animation */
+        .portfolio-item {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .portfolio-item.hiding {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 60px 0 30px;
+            margin-top: 100px;
+        }
+        footer h5 {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        footer p {
+            color: var(--text-muted);
+        }
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        footer a:hover { color: #fff; }
+
+        @media (max-width: 991px) {
+            .page-hero h1 { font-size: 2.5rem; }
+            .featured-card .content { padding: 2rem; }
+            .featured-card .img-wrap { min-height: 240px; }
+        }
+        @media (max-width: 575px) {
+            .page-hero h1 { font-size: 2rem; }
+            .page-hero { padding: 80px 0 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">ARCANE TECH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/collaboration.html">Collaboration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="page-hero">
+        <div class="container">
+            <h1>Portfolio</h1>
+            <p class="lead">Explore our latest digital architectures — from AI-driven platforms to highly secure cloud infrastructures.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Featured Project -->
+        <div class="featured-card">
+            <div class="row g-0 align-items-stretch">
+                <div class="col-lg-7">
+                    <div class="img-wrap">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" alt="Global Quantum Infrastructure">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="content">
+                        <span class="category-tag">Featured Project</span>
+                        <h2>Global Quantum Infrastructure</h2>
+                        <p>A full-scale cloud migration and security overhaul for a multi-national financial institution, implementing zero-trust architecture across 12 global regions.</p>
+                        <a href="#" class="btn-case-study">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="ai">AI</button>
+            <button class="filter-btn" data-filter="cloud">Cloud</button>
+            <button class="filter-btn" data-filter="security">Security</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="row g-4" id="portfolio-grid">
+            <div class="col-lg-4 col-md-6 portfolio-item" data-category="web">
+                <div class="project-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="Nexus E-Commerce">
+                    </div>
+                    <div class="card-body">
+                        <span class="category-tag">Web</span>
+                        <h5 class="card-title">Nexus E-Commerce</h5>
+                        <p class="card-text">High-performance headless commerce solution built for speed and scalability.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item" data-category="ai">
+                <div class="project-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600" alt="Sentience Analytics">
+                    </div>
+                    <div class="card-body">
+                        <span class="category-tag">AI</span>
+                        <h5 class="card-title">Sentience Analytics</h5>
+                        <p class="card-text">Predictive data modeling platform using advanced neural networks for real-time insights.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item" data-category="cloud">
+                <div class="project-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600" alt="SkyVault Storage">
+                    </div>
+                    <div class="card-body">
+                        <span class="category-tag">Cloud</span>
+                        <h5 class="card-title">SkyVault Storage</h5>
+                        <p class="card-text">Distributed cloud storage system with 99.99% uptime and global edge nodes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item" data-category="security">
+                <div class="project-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="IronGate Firewall">
+                    </div>
+                    <div class="card-body">
+                        <span class="category-tag">Security</span>
+                        <h5 class="card-title">IronGate Firewall</h5>
+                        <p class="card-text">Next-gen enterprise security layer protecting against zero-day exploits.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item" data-category="web">
+                <div class="project-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=600" alt="Velocity Dashboard">
+                    </div>
+                    <div class="card-body">
+                        <span class="category-tag">Web</span>
+                        <h5 class="card-title">Velocity Dashboard</h5>
+                        <p class="card-text">Real-time analytics dashboard with sub-second data rendering and custom visualizations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item" data-category="ai">
+                <div class="project-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&q=80&w=600" alt="DeepScan Vision">
+                    </div>
+                    <div class="card-body">
+                        <span class="category-tag">AI</span>
+                        <h5 class="card-title">DeepScan Vision</h5>
+                        <p class="card-text">Computer vision system for automated quality control in manufacturing pipelines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">ARCANE TECH</h5>
+                    <p class="small">Leading the edge of digital transformation through precision engineering.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="mb-3" style="color: rgba(255,255,255,0.5); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Pages</h6>
+                    <ul class="list-unstyled" style="font-size: 0.9rem;">
+                        <li class="mb-2"><a href="/">Home</a></li>
+                        <li class="mb-2"><a href="/portfolio.html">Portfolio</a></li>
+                        <li class="mb-2"><a href="/collaboration.html">Collaboration</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p class="small">&copy; 2025 Arcane Tech. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.portfolio-item');
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    items.forEach(item => {
+                        const category = item.getAttribute('data-category');
+
+                        if (filter === 'all' || category === filter) {
+                            item.classList.remove('hiding');
+                            item.style.display = '';
+                        } else {
+                            item.classList.add('hiding');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 400);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
