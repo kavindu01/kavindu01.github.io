@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +17,6 @@
   --secondary:#0072ff;
   --bg:#0b0f19;
   --glass:rgba(255,255,255,.08);
-  --overlay: rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -63,7 +64,6 @@ h2 {
   font-size:2.5rem;
   text-align:center;
   margin-bottom:20px;
-  color:white;
 }
 
 .portfolio-intro {
@@ -71,33 +71,17 @@ h2 {
   margin:0 auto 60px;
   text-align:center;
   opacity:.85;
-  font-size:1.1rem;
 }
 
-/* WIDE HORIZONTAL CARDS */
+/* CARDS */
 .portfolio-card {
   display:flex;
   background: var(--glass);
   border-radius:20px;
   margin-bottom:50px;
   overflow:hidden;
-  position:relative;
   transition:.5s;
   box-shadow: 0 10px 30px rgba(0,114,255,.3);
-}
-
-.portfolio-card::before {
-  content:"";
-  position:absolute;
-  top:0; left:0; right:0; bottom:0;
-  background: linear-gradient(to right, var(--primary), var(--secondary));
-  opacity:0;
-  transition:.5s;
-  border-radius:20px;
-}
-
-.portfolio-card:hover::before {
-  opacity:0.15;
 }
 
 .portfolio-card:hover {
@@ -108,57 +92,54 @@ h2 {
 .portfolio-card img {
   width:50%;
   object-fit:cover;
-  transition: transform .5s, filter .5s;
-}
-
-.portfolio-card:hover img {
-  transform:scale(1.05);
-  filter: brightness(0.85);
 }
 
 .card-content {
   padding:40px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
   width:50%;
 }
 
 .card-content h3 {
   font-size:2rem;
   color: var(--primary);
-  margin-bottom:15px;
 }
 
 .card-content p {
-  font-size:1.1rem;
   opacity:.85;
   line-height:1.6;
-  margin-bottom:15px;
 }
 
-/* TAGS FOR TECH STACK */
+/* TAGS */
 .tech-tags {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+  margin-top:15px;
 }
 
 .tech-tag {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color:#fff;
-  font-size:0.9rem;
   padding:5px 12px;
   border-radius:12px;
+  margin:5px;
   display:inline-block;
+  font-size:0.85rem;
+}
+
+/* BUTTON */
+.btn {
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  border-radius:25px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color:white;
+  text-decoration:none;
   transition:.3s;
 }
 
-.tech-tag:hover {
+.btn:hover {
   transform:scale(1.05);
 }
 
-/* ALTERNATE CARD IMAGE LEFT/RIGHT */
+/* ALT LAYOUT */
 .portfolio-card:nth-child(even) {
   flex-direction: row-reverse;
 }
@@ -172,14 +153,10 @@ h2 {
   .card-content {
     width:100%;
   }
-  .card-content {
-    padding:20px;
-  }
-  h2 { font-size:2rem; }
 }
 </style>
-
 </head>
+
 <body>
 
 <!-- NAVBAR -->
@@ -194,84 +171,99 @@ h2 {
   </div>
 </nav>
 
-<!-- PORTFOLIO SECTION -->
+<!-- PORTFOLIO -->
 <section>
   <h2>Our Portfolio</h2>
   <p class="portfolio-intro">
-    Explore our key projects. Each project is crafted with precision and innovation.
+    Explore our real-world systems and innovative solutions developed for businesses and users.
   </p>
 
-  <!-- Portfolio Cards -->
+  <!-- Project 1 -->
   <div class="portfolio-card">
-    <img src="images/project1.jpg" alt="Corporate Website">
+    <img src="images/gallery-cafe.jpg">
     <div class="card-content">
-      <h3>Corporate Website</h3>
-      <p>We build responsive, modern websites tailored for startups and enterprises. Designed to optimize user experience and performance.</p>
+      <h3>The Gallery Cafe Website</h3>
+      <p>
+        Database-driven website with meal menus, table reservations, and online preordering.
+        Includes user registration, cuisine search, and admin/staff management system.
+      </p>
       <div class="tech-tags">
         <span class="tech-tag">HTML</span>
         <span class="tech-tag">CSS</span>
         <span class="tech-tag">JavaScript</span>
-        <span class="tech-tag">React</span>
+        <span class="tech-tag">PHP</span>
+        <span class="tech-tag">Bootstrap</span>
+        <span class="tech-tag">SQL Server</span>
       </div>
+      <a href="https://bim17577.github.io/The-Gallery-Cafe/" class="btn">View Project</a>
     </div>
   </div>
 
+  <!-- Project 2 -->
   <div class="portfolio-card">
-    <img src="images/project2.jpg" alt="AI Chatbot">
+    <img src="images/debra.jpg">
     <div class="card-content">
-      <h3>AI Chatbot</h3>
-      <p>Intelligent AI chatbots for seamless automation, providing customer support and operational efficiency for businesses of all sizes.</p>
+      <h3>Debra Event Management System</h3>
+      <p>
+        SOC-based system integrating partner companies, APIs, and mobile apps.
+        Includes event creation, ticket management, sales tracking, and commission system.
+      </p>
       <div class="tech-tags">
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">AI/ML</span>
-        <span class="tech-tag">Node.js</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="portfolio-card">
-    <img src="images/project3.jpg" alt="Cloud Dashboard">
-    <div class="card-content">
-      <h3>Cloud Dashboard</h3>
-      <p>Real-time cloud analytics dashboards enabling organizations to track, monitor, and make data-driven decisions efficiently.</p>
-      <div class="tech-tags">
-        <span class="tech-tag">AWS</span>
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">SQL Server</span>
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
         <span class="tech-tag">JavaScript</span>
-        <span class="tech-tag">D3.js</span>
       </div>
+      <a href="#" class="btn">View Project</a>
     </div>
   </div>
 
+  <!-- Project 3 -->
   <div class="portfolio-card">
-    <img src="images/project4.jpg" alt="Cybersecurity Upgrade">
+    <img src="images/t2t.jpg">
     <div class="card-content">
-      <h3>Cybersecurity Upgrade</h3>
-      <p>Enterprise-level cybersecurity implementation and monitoring to protect critical assets and ensure business continuity.</p>
+      <h3>T2T Platform</h3>
+      <p>
+        Industry collaboration platform connecting students, mentors, clients, and universities.
+        Features include progress tracking, mentor assignment, and portfolio showcasing.
+      </p>
       <div class="tech-tags">
-        <span class="tech-tag">Firewall</span>
-        <span class="tech-tag">Network Security</span>
-        <span class="tech-tag">PenTest</span>
+        <span class="tech-tag">Spring Boot</span>
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">MySQL</span>
+        <span class="tech-tag">REST APIs</span>
+        <span class="tech-tag">TypeScript</span>
       </div>
+      <a href="#" class="btn">View Project</a>
     </div>
   </div>
 
+  <!-- Project 4 -->
   <div class="portfolio-card">
-    <img src="images/project5.jpg" alt="Mobile App">
+    <img src="images/adhd.jpg">
     <div class="card-content">
-      <h3>Mobile App Development</h3>
-      <p>Custom Android and iOS mobile applications with focus on UX, performance, and scalability for modern business needs.</p>
+      <h3>ADHD Support Website</h3>
+      <p>
+        Interactive platform offering tools, activities, and educational resources for parents
+        to manage ADHD and improve children's focus and confidence.
+      </p>
       <div class="tech-tags">
-        <span class="tech-tag">Flutter</span>
-        <span class="tech-tag">Dart</span>
-        <span class="tech-tag">Firebase</span>
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">PHP</span>
+        <span class="tech-tag">Bootstrap</span>
+        <span class="tech-tag">SQL Server</span>
       </div>
+      <a href="#" class="btn">View Project</a>
     </div>
   </div>
 
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer style="text-align:center; padding:20px; background:#070b14;">
   © 2026 Arcane Technologies. All rights reserved.
 </footer>
 
