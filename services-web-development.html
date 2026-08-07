@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Modern, responsive websites and web applications built for business growth by Arcane Technologies.">
+<title>Web Development | Arcane</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+
+<style>
+/* ---------- HERO ---------- */
+.hero-managed {
+  position: relative;
+  height:420px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  background:
+    linear-gradient(120deg,rgba(5,8,17,.85),rgba(11,15,25,.85)),
+    url("images/d4.png") center/cover;
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  padding:0 8%;
+}
+
+.hero-content h1 {
+  font-size:3rem;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+}
+
+.hero-content p {
+  max-width:800px;
+  margin:auto;
+  font-size:1.15rem;
+  color:rgba(255,255,255,0.9);
+}
+
+/* ---------- FEATURE BLOCKS ---------- */
+.feature-block {
+  display:flex;
+  align-items:center;
+  gap:40px;
+  padding:60px 8%;
+  flex-wrap:wrap;
+  color:white;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp 0.6s forwards;
+}
+
+.feature-block:nth-child(even) {
+  flex-direction:row-reverse;
+}
+
+.feature-block img {
+  max-width:480px;
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 12px 35px rgba(0,114,255,0.4);
+}
+
+.feature-block .feature-text {
+  flex:1;
+  max-width:600px;
+}
+
+.feature-block .feature-text h2 {
+  font-size:2rem;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:15px;
+}
+
+.feature-block .feature-text p {
+  font-size:1.1rem;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+  display:inline-block;
+  padding:14px 36px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn:hover {
+  transform:translateY(-5px);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  padding:35px 8%;
+  text-align:center;
+  color:rgba(255,255,255,.7);
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+@keyframes fadeInUp {
+  to { opacity:1; transform:translateY(0); }
+}
+
+@media(max-width:900px){
+  .hero-managed { height:auto; padding:60px 6%; }
+  .hero-content h1 { font-size:2.2rem; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><img src="images/logo-nav.png" alt="Arcane Technologies logo"><span>Arcane</span> Technologies</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="collab.html">Collab</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-managed">
+  <div class="hero-content">
+    <h1>Web Development</h1>
+    <p>Fast, responsive, and secure websites and web applications — built to grow with your business, not against it.</p>
+  </div>
+</div>
+
+<!-- FEATURES ALTERNATING BLOCKS -->
+<section>
+  <div class="feature-block" style="animation-delay:0.2s;">
+    <img src="images/d5.webp" alt="Business website" loading="lazy">
+    <div class="feature-text">
+      <h2>Business Websites</h2>
+      <p>Modern, mobile-first websites that load fast and represent your business the way it deserves.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.4s;">
+    <img src="images/d6.webp" alt="Web application" loading="lazy">
+    <div class="feature-text">
+      <h2>Web Applications</h2>
+      <p>Custom web apps for booking, client portals, internal tools, or anything off-the-shelf software can't do.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.6s;">
+    <img src="images/d9.png" alt="E-commerce" loading="lazy">
+    <div class="feature-text">
+      <h2>E-Commerce</h2>
+      <p>Online stores built to convert, with secure payments and inventory management that scales with you.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.8s;">
+    <img src="images/d10.webp" alt="Website maintenance" loading="lazy">
+    <div class="feature-text">
+      <h2>Ongoing Maintenance & Hosting</h2>
+      <p>Updates, security patches, and hosting handled for you, so your site stays fast and online.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:50px;">
+    <a class="btn" href="contact.html">Start Your Website Project</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Arcane Technologies · Built Fast, Built to Last
+</footer>
+
+</body>
+</html>

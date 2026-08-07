@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Custom Android and iOS applications designed for performance, usability and scalability by Arcane Technologies.">
+<title>Mobile App Development | Arcane</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+
+<style>
+/* ---------- HERO ---------- */
+.hero-managed {
+  position: relative;
+  height:420px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  background:
+    linear-gradient(120deg,rgba(5,8,17,.85),rgba(11,15,25,.85)),
+    url("images/d3.jpeg") center/cover;
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  padding:0 8%;
+}
+
+.hero-content h1 {
+  font-size:3rem;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+}
+
+.hero-content p {
+  max-width:800px;
+  margin:auto;
+  font-size:1.15rem;
+  color:rgba(255,255,255,0.9);
+}
+
+/* ---------- FEATURE BLOCKS ---------- */
+.feature-block {
+  display:flex;
+  align-items:center;
+  gap:40px;
+  padding:60px 8%;
+  flex-wrap:wrap;
+  color:white;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp 0.6s forwards;
+}
+
+.feature-block:nth-child(even) {
+  flex-direction:row-reverse;
+}
+
+.feature-block img {
+  max-width:480px;
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 12px 35px rgba(0,114,255,0.4);
+}
+
+.feature-block .feature-text {
+  flex:1;
+  max-width:600px;
+}
+
+.feature-block .feature-text h2 {
+  font-size:2rem;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:15px;
+}
+
+.feature-block .feature-text p {
+  font-size:1.1rem;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+  display:inline-block;
+  padding:14px 36px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn:hover {
+  transform:translateY(-5px);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  padding:35px 8%;
+  text-align:center;
+  color:rgba(255,255,255,.7);
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+@keyframes fadeInUp {
+  to { opacity:1; transform:translateY(0); }
+}
+
+@media(max-width:900px){
+  .hero-managed { height:auto; padding:60px 6%; }
+  .hero-content h1 { font-size:2.2rem; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><img src="images/logo-nav.png" alt="Arcane Technologies logo"><span>Arcane</span> Technologies</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="collab.html">Collab</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-managed">
+  <div class="hero-content">
+    <h1>Mobile App Development</h1>
+    <p>Custom Android and iOS apps designed for performance and usability — from first sketch to app store launch.</p>
+  </div>
+</div>
+
+<!-- FEATURES ALTERNATING BLOCKS -->
+<section>
+  <div class="feature-block" style="animation-delay:0.2s;">
+    <img src="images/d8.png" alt="Mobile app development" loading="lazy">
+    <div class="feature-text">
+      <h2>Native & Cross-Platform Apps</h2>
+      <p>Android and iOS apps built with the right tech for your budget and timeline, from Kotlin/Swift to Flutter.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.4s;">
+    <img src="images/D1.webp" alt="App UI design" loading="lazy">
+    <div class="feature-text">
+      <h2>UI/UX Design</h2>
+      <p>Interfaces designed around how real users behave, not just how they look in a mockup.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.6s;">
+    <img src="images/d2.png" alt="API integration" loading="lazy">
+    <div class="feature-text">
+      <h2>API & Backend Integration</h2>
+      <p>Secure, reliable connections between your app and the systems it needs to talk to.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.8s;">
+    <img src="images/1.webp" alt="App store deployment" loading="lazy">
+    <div class="feature-text">
+      <h2>App Store Deployment & Support</h2>
+      <p>End-to-end submission to Google Play and the App Store, plus updates after launch.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:50px;">
+    <a class="btn" href="contact.html">Discuss Your App Idea</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Arcane Technologies · Designed, Built, Launched
+</footer>
+
+</body>
+</html>

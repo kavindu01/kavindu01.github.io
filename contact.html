@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Get in touch with Arcane Technologies for secure, scalable, and compliance-driven IT solutions. Enterprise, sales and technical support contacts.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Contact Arcane</title>
   <link rel="stylesheet" href="style.css">
 <script defer src="script.js"></script>
@@ -210,11 +215,11 @@ footer {
 <body>
 
 <nav>
-  <div class="logo"><span>Arcane</span> Technologies</div>
+  <a href="index.html" class="logo"><img src="images/logo-nav.png" alt="Arcane Technologies logo"><span>Arcane</span> Technologies</a>
   <div>
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
-    <a href="portfolio.html">portfolio</a>
+    <a href="portfolio.html">Portfolio</a>
     <a href="collab.html">Collab</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -241,7 +246,7 @@ footer {
         Strategic partnerships, enterprise infrastructure,
         and large-scale digital transformation projects.
       </p>
-      <a href="mailto:enterprise@arcanetech.com">enterprise@arcanetech.com</a>
+      <a href="mailto:enterprise@arcanetech.com.au">enterprise@arcanetech.com.au</a>
     </div>
 
     <div class="card">
@@ -250,7 +255,7 @@ footer {
         Service consultations, pricing details,
         proposals, and onboarding discussions.
       </p>
-      <a href="mailto:sales@arcanetech.com">sales@arcanetech.com</a>
+      <a href="mailto:sales@arcanetech.com.au">sales@arcanetech.com.au</a>
     </div>
 
     <div class="card">
@@ -259,7 +264,7 @@ footer {
         Existing client support, incident response,
         and technical assistance.
       </p>
-      <a href="mailto:support@arcanetech.com">support@arcanetech.com</a>
+      <a href="mailto:support@arcanetech.com.au">support@arcanetech.com.au</a>
     </div>
 
   </div>
@@ -268,10 +273,13 @@ footer {
   <div class="contact-form card">
     <h3>Send Us a Message</h3>
 
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
+    <form action="https://formsubmit.co/sales@arcanetech.com.au" method="POST">
+      <input type="hidden" name="_subject" value="New message from arcanetech.com.au contact form">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://arcanetech.com.au/contact.html?sent=1">
+      <input type="text" name="full_name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn">Submit Message</button>
     </form>
   </div>
@@ -284,15 +292,18 @@ footer {
     Let us know your requirements and our team will get back to you within 24 hours.
   </p>
 
-  <form class="it-form">
+  <form class="it-form" action="https://formsubmit.co/sales@arcanetech.com.au" method="POST">
+    <input type="hidden" name="_subject" value="New IT requirements request">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://arcanetech.com.au/contact.html?sent=1">
     <div class="form-grid">
-      <input type="text" placeholder="Business Name" required>
-      <input type="text" placeholder="Contact Person" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="tel" placeholder="Phone Number">
+      <input type="text" name="business_name" placeholder="Business Name" required>
+      <input type="text" name="contact_person" placeholder="Contact Person" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number">
     </div>
 
-    <select required>
+    <select name="service_needed" required>
       <option value="">Select Service Needed</option>
       <option>Managed IT & Networks</option>
       <option>Cybersecurity</option>
@@ -302,7 +313,7 @@ footer {
       <option>Other</option>
     </select>
 
-    <textarea rows="5" placeholder="Describe your IT requirements..." required></textarea>
+    <textarea rows="5" name="requirements" placeholder="Describe your IT requirements..." required></textarea>
 
     <button type="submit" class="btn">Submit Request</button>
   </form>

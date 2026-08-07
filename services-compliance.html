@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NDIS and school IT compliance, audits and remediation for SMEs, schools and clinics from Arcane Technologies.">
+<title>Compliance & Consulting | Arcane</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+
+<style>
+/* ---------- HERO ---------- */
+.hero-managed {
+  position: relative;
+  height:420px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  background:
+    linear-gradient(120deg,rgba(5,8,17,.85),rgba(11,15,25,.85)),
+    url("images/t4.jpg") center/cover;
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  padding:0 8%;
+}
+
+.hero-content h1 {
+  font-size:3rem;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+}
+
+.hero-content p {
+  max-width:800px;
+  margin:auto;
+  font-size:1.15rem;
+  color:rgba(255,255,255,0.9);
+}
+
+/* ---------- FEATURE BLOCKS ---------- */
+.feature-block {
+  display:flex;
+  align-items:center;
+  gap:40px;
+  padding:60px 8%;
+  flex-wrap:wrap;
+  color:white;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeInUp 0.6s forwards;
+}
+
+.feature-block:nth-child(even) {
+  flex-direction:row-reverse;
+}
+
+.feature-block img {
+  max-width:480px;
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 12px 35px rgba(0,114,255,0.4);
+}
+
+.feature-block .feature-text {
+  flex:1;
+  max-width:600px;
+}
+
+.feature-block .feature-text h2 {
+  font-size:2rem;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:15px;
+}
+
+.feature-block .feature-text p {
+  font-size:1.1rem;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+  display:inline-block;
+  padding:14px 36px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn:hover {
+  transform:translateY(-5px);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  padding:35px 8%;
+  text-align:center;
+  color:rgba(255,255,255,.7);
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+@keyframes fadeInUp {
+  to { opacity:1; transform:translateY(0); }
+}
+
+@media(max-width:900px){
+  .hero-managed { height:auto; padding:60px 6%; }
+  .hero-content h1 { font-size:2.2rem; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><img src="images/logo-nav.png" alt="Arcane Technologies logo"><span>Arcane</span> Technologies</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="collab.html">Collab</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-managed">
+  <div class="hero-content">
+    <h1>Compliance & Consulting</h1>
+    <p>Practical, audit-ready IT compliance for NDIS providers, schools, and healthcare organisations — without the enterprise price tag.</p>
+  </div>
+</div>
+
+<!-- FEATURES ALTERNATING BLOCKS -->
+<section>
+  <div class="feature-block" style="animation-delay:0.2s;">
+    <img src="images/t5.jpg" alt="NDIS compliance" loading="lazy">
+    <div class="feature-text">
+      <h2>NDIS IT Compliance</h2>
+      <p>IT systems and documentation aligned with NDIS practice standards, so audits are a formality, not a scramble.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.4s;">
+    <img src="images/r2.jpg" alt="School IT compliance" loading="lazy">
+    <div class="feature-text">
+      <h2>School IT Compliance</h2>
+      <p>Guidance aligned with frameworks like the ACSC Essential Eight, tailored for school budgets and staffing.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.6s;">
+    <img src="images/r3.png" alt="Healthcare compliance" loading="lazy">
+    <div class="feature-text">
+      <h2>Healthcare Data Compliance</h2>
+      <p>Privacy-aligned data handling and access controls for clinics managing sensitive patient information.</p>
+    </div>
+  </div>
+  <div class="feature-block" style="animation-delay:0.8s;">
+    <img src="images/r4.jpg" alt="IT audit" loading="lazy">
+    <div class="feature-text">
+      <h2>Audits & Remediation</h2>
+      <p>Independent IT audits that identify gaps, followed by a clear, prioritised remediation plan.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:50px;">
+    <a class="btn" href="contact.html">Book a Compliance Review</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Arcane Technologies · Compliant, Audited, Protected
+</footer>
+
+</body>
+</html>
