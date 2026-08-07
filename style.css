@@ -18,7 +18,9 @@ nav {
   position:fixed;
   top:0; width:100%;
   padding:18px 8%;
-  background:rgba(11,15,25,.85);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(16px);
+  box-shadow:0 2px 20px rgba(0,0,0,.15);
   display:flex; justify-content:space-between; align-items:center;
   z-index:1000;
 }
@@ -29,6 +31,7 @@ nav {
   display:flex;
   align-items:center;
   gap:10px;
+  color:#0b0f19;
 }
 .logo img {
   height:36px;
@@ -41,7 +44,7 @@ nav {
   -webkit-text-fill-color:transparent;
 }
 
-nav a { margin-left:22px; font-weight:500; }
+nav a { margin-left:22px; font-weight:500; color:#0b0f19; }
 nav a:hover { color:var(--primary); }
 /* HERO SECTION */
 .hero {
