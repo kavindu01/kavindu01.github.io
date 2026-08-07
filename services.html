@@ -63,8 +63,18 @@ nav a{
   text-decoration:none;
   color:#0b0f19;
   transition:.3s;
+  position:relative;
 }
 nav a:hover{ color:var(--primary); }
+nav a.active{ color:var(--primary); font-weight:700; }
+nav a.active::after {
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-8px;
+  height:2px;
+  background:var(--primary);
+  border-radius:2px;
+}
 
 /* HEADER */
 .header-animated{

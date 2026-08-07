@@ -42,8 +42,20 @@ nav {
   color:#021f47;
 }
 
-nav a { margin-left:22px; font-weight:500; color:#0b0f19; }
+nav a { margin-left:22px; font-weight:500; color:#0b0f19; position:relative; }
 nav a:hover { color:var(--primary); }
+nav a.active {
+  color:var(--primary);
+  font-weight:700;
+}
+nav a.active::after {
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-8px;
+  height:2px;
+  background:var(--primary);
+  border-radius:2px;
+}
 /* HERO SECTION */
 .hero {
   position: relative;
