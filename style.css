@@ -39,9 +39,7 @@ nav {
   display:block;
 }
 .logo span {
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:#021f47;
 }
 
 nav a { margin-left:22px; font-weight:500; color:#0b0f19; }
