@@ -648,7 +648,7 @@ footer {
 
 /* TECHNOLOGIES SECTION */
 .tech-section {
-  padding: 120px 5%;
+  padding: 120px 0;   /* no side padding, so the icon row can reach both screen edges */
   background: #0d1b35;
   text-align: center;
   color: #fff;
@@ -662,18 +662,24 @@ footer {
   background: linear-gradient(135deg,#00c6ff,#0072ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding: 0 5%;      /* keeps the heading inset now the section has no side padding */
 }
 
-/* Carousel container */
+/* Carousel container: full width, edge to edge */
 .tech-carousel {
   overflow: hidden;
   width: 100%;
+  padding: 30px 0;    /* room for the glow and hover zoom so they aren't clipped */
 }
 
 .tech-track {
   display: flex;
-  gap: 50px;
-  animation: scrollRight 25s linear infinite;
+  width: max-content; /* as wide as all the cards, so -50% = exactly one set */
+  animation: scrollRight 35s linear infinite;
+}
+
+.tech-carousel:hover .tech-track {
+  animation-play-state: paused;
 }
 
 /* Tech card */
@@ -682,6 +688,7 @@ footer {
   flex-direction: column;
   align-items: center;
   min-width: 150px;
+  margin-right: 50px; /* spacing as margin (not gap) keeps the loop seamless */
   cursor: pointer;
   transition: transform 0.3s;
 }
@@ -719,9 +726,13 @@ footer {
 }
 
 /* Responsive */
+@media (prefers-reduced-motion: reduce) {
+  .tech-track { animation: none; }
+}
+
 @media(max-width:900px){
-  .tech-track {
-    gap: 25px;
+  .tech-card {
+    margin-right: 25px;
   }
   .tech-card img {
     width: 80px;
