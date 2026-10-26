@@ -291,6 +291,70 @@ h3 { color:var(--primary); margin-bottom:12px; }
 
 
 
+/* BRAND EMBLEM (replaces the old logo image next to "Engineering Secure Digital Futures") */
+.split-image {
+  align-items: center;
+}
+
+.brand-emblem {
+  position: relative;
+  width: min(380px, 80%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  /* soft light disc so the navy "A" stands out on the dark section */
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #eaf0f8 55%, #c7d4e8 100%);
+  box-shadow:
+    0 0 0 1px rgba(212, 175, 55, 0.45),
+    0 0 70px rgba(0, 198, 255, 0.25),
+    0 30px 80px rgba(0, 0, 0, 0.55);
+  animation: emblemFloat 6s ease-in-out infinite;
+}
+
+/* slowly rotating cyan/gold halo ring */
+.brand-emblem::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    transparent 0deg,
+    rgba(0, 198, 255, 0.9) 70deg,
+    transparent 150deg,
+    rgba(212, 175, 55, 0.9) 250deg,
+    transparent 330deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+  animation: emblemSpin 14s linear infinite;
+}
+
+.split-image .brand-emblem img {
+  width: 62%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  filter: drop-shadow(0 8px 14px rgba(13, 27, 53, 0.25));
+  transition: transform 0.6s ease;
+}
+
+.brand-emblem:hover img {
+  transform: scale(1.06);
+}
+
+@keyframes emblemFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes emblemSpin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-emblem, .brand-emblem::before { animation: none; }
+}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   .split {
@@ -302,6 +366,10 @@ h3 { color:var(--primary); margin-bottom:12px; }
   }
   .split-text h2 {
     font-size: 2.2rem;
+  }
+  .brand-emblem {
+    width: min(280px, 75%);
+    margin-top: 30px;
   }
 }
 
